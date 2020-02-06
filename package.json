@@ -2,7 +2,7 @@
   "name": "demo1",
   "version": "6.1.5",
   "private": true,
-  "homepage": "https://this-pama.github.io/artered-web-app",
+  "homepage": "https://arte-red-web.herokuapp.com/",
   "scripts": {
     "serve": "cp-cli build _site/metronic/preview/react && serve",
     "start": "react-scripts start",
