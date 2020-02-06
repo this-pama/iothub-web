@@ -48,8 +48,8 @@ function Login(props) {
 
           <Formik
             initialValues={{
-              email: "admin@demo.com",
-              password: "demo"
+              email: "",
+              password: ""
             }}
             validate={values => {
               const errors = {};
@@ -77,11 +77,12 @@ function Login(props) {
             }}
             onSubmit={(values, { setStatus, setSubmitting }) => {
               enableLoading();
-              setTimeout(() => {
-                login(values.email, values.password)
-                  .then(({ data: { accessToken } }) => {
+              login(values.email, values.password)
+                  .then(({ data}) => {
                     disableLoading();
-                    props.login(accessToken);
+                    console.log(data);
+                    props.login(data.token);
+                    
                   })
                   .catch(() => {
                     disableLoading();
@@ -92,7 +93,6 @@ function Login(props) {
                       })
                     );
                   });
-              }, 1000);
             }}
           >
             {({
