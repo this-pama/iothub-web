@@ -16,14 +16,19 @@ const initialAuthState = {
   user: undefined,
   authToken: undefined
 };
+let userId = '';
+let jwt = '';
 
 export const reducer = persistReducer(
-    { storage, key: "demo1-auth", whitelist: ["user", "authToken"] },
+    { storage, key: "artered-auth", whitelist: ["user", "authToken"] },
     (state = initialAuthState, action) => {
       switch (action.type) {
         case actionTypes.Login: {
-          const { authToken } = action.payload;
-
+          
+          const authToken = {}
+          authToken.authToken = action.payload.token;
+          userId= action.payload.id;
+          jwt= action.payload.token;
           return { authToken, user: undefined };
         }
 
@@ -40,7 +45,7 @@ export const reducer = persistReducer(
 
         case actionTypes.UserLoaded: {
           const { user } = action.payload;
-
+          // console.log("userLoaded", action.payload)
           return { ...state, user };
         }
 
@@ -51,7 +56,7 @@ export const reducer = persistReducer(
 );
 
 export const actions = {
-  login: authToken => ({ type: actionTypes.Login, payload: { authToken } }),
+  login: payload => ({ type: actionTypes.Login, payload }),
   register: authToken => ({
     type: actionTypes.Register,
     payload: { authToken }
@@ -71,8 +76,10 @@ export function* saga() {
   });
 
   yield takeLatest(actionTypes.UserRequested, function* userRequested() {
-    const { data: user } = yield getUserByToken();
 
+    const { data: user } = yield getUserByToken(userId, jwt);
+    // console.log("userLoaded", user)
     yield put(actions.fulfillUser(user));
   });
 }
+

@@ -7,6 +7,12 @@ import { TextField } from "@material-ui/core";
 import clsx from "clsx";
 import * as auth from "../../store/ducks/auth.duck";
 import { login } from "../../crud/auth.crud";
+import {
+  BrowserRouter as Router,
+  Redirect,
+  useHistory,
+  useLocation
+} from "react-router-dom";
 
 function Login(props) {
   const { intl } = props;
@@ -24,6 +30,8 @@ function Login(props) {
     setLoading(false);
     setLoadingButtonStyle({ paddingRight: "2.5rem" });
   };
+
+  let history = useHistory();
 
   return (
     <>
@@ -80,8 +88,12 @@ function Login(props) {
               login(values.email, values.password)
                   .then(({ data}) => {
                     disableLoading();
-                    console.log(data);
-                    props.login(data.token);
+                    console.log(data.token);
+                    props.login(data)
+                    // if(data.token){
+                    //    history.push("/");
+                    // } 
+                    
                     
                   })
                   .catch(() => {
