@@ -15,7 +15,7 @@ export default class Topbar extends React.Component {
         <SearchDropdown useSVG="true" />
 
         <UserNotifications
-          bgImage={toAbsoluteUrl("/media/misc/bg-1.jpg")}
+          bgImage={toAbsoluteUrl("/media/misc/bg-1.jpg")} 
           pulse="true"
           pulseLight="false"
           skin="dark"
@@ -33,16 +33,8 @@ export default class Topbar extends React.Component {
           gridNavSkin="light"
         />
 
-        <MyCart
-          iconType=""
-          useSVG="true"
-          bgImage={toAbsoluteUrl("/media/misc/bg-1.jpg")}
-        />
-
           <QuickPanelToggler />
 
-
-          <LanguageSelector iconType="" />
 
         <UserProfile showAvatar={true} showHi={true} showBadge={false} />
       </div>

@@ -49,6 +49,7 @@ class SubHeader extends React.Component {
               href="#"
               className="btn btn-label-warning btn-bold btn-sm btn-icon-h kt-margin-l-10"
             >
+              <i className="kt-nav__link-icon flaticon2-photo-camera" />
               Add New Post
             </a>
           </div>
@@ -56,7 +57,7 @@ class SubHeader extends React.Component {
           <div className="kt-subheader__toolbar">
             <div className="kt-subheader__wrapper">
               <button type="button" className="btn kt-subheader__btn-primary">
-                Actions &nbsp;
+              Sort By &nbsp;
                 <SortNum1Icon className="kt-svg-icon kt-svg-icon--sm" />
               </button>
               <QuickActions />

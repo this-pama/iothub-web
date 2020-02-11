@@ -39,35 +39,28 @@ export class QuickActions extends React.Component {
             <Dropdown.Menu className="dropdown-menu-fit dropdown-menu-md dropdown-menu-right">
               <ul className="kt-nav">
                 <li className="kt-nav__head">
-                  Add anything or jump to:
-                  <i
-                    className="flaticon2-information"
-                    data-toggle="kt-tooltip"
-                    data-placement="right"
-                    title=""
-                    data-original-title="Click to learn more..."
-                  />
+                  Post:
                 </li>
                 <li className="kt-nav__separator" />
                 <li className="kt-nav__item">
                   <a href="#" className="kt-nav__link">
-                    <i className="kt-nav__link-icon flaticon2-drop" />
-                    <span className="kt-nav__link-text">Order</span>
+                    <i className="kt-nav__link-icon flaticon-upload" />
+                    <span className="kt-nav__link-text">Artwork</span>
                   </a>
                 </li>
                 <li className="kt-nav__item">
                   <a href="#" className="kt-nav__link">
-                    <i className="kt-nav__link-icon flaticon2-calendar-8" />
-                    <span className="kt-nav__link-text">Ticket</span>
+                    <i className="kt-nav__link-icon flaticon2-calendar-9" />
+                    <span className="kt-nav__link-text">Exhibition</span>
                   </a>
                 </li>
                 <li className="kt-nav__item">
                   <a href="#" className="kt-nav__link">
-                    <i className="kt-nav__link-icon flaticon2-telegram-logo" />
-                    <span className="kt-nav__link-text">Goal</span>
+                    <i className="kt-nav__link-icon flaticon2-photograph" />
+                    <span className="kt-nav__link-text">Auction</span>
                   </a>
                 </li>
-                <li className="kt-nav__item">
+                {/* <li className="kt-nav__item">
                   <a href="#" className="kt-nav__link">
                     <i className="kt-nav__link-icon flaticon2-new-email" />
                     <span className="kt-nav__link-text">Support Case</span>
@@ -77,22 +70,13 @@ export class QuickActions extends React.Component {
                       </span>
                     </span>
                   </a>
-                </li>
+                </li> */}
                 <li className="kt-nav__separator" />
                 <li className="kt-nav__foot">
                   <a className="btn btn-label-brand btn-bold btn-sm" href="#">
-                    Upgrade plan
+                    My Wallet
                   </a>
-                  <a
-                    className="btn btn-clean btn-bold btn-sm kt-hidden"
-                    href="#"
-                    data-toggle="kt-tooltip"
-                    data-placement="right"
-                    title=""
-                    data-original-title="Click to learn more..."
-                  >
-                    Learn more
-                  </a>
+                  
                 </li>
               </ul>
             </Dropdown.Menu>
