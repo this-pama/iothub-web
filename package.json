@@ -4,9 +4,8 @@
   "private": true,
   "homepage": "https://arte-red-web.herokuapp.com/",
   "scripts": {
-    "serve": "cp-cli build _site/metronic/preview/react && serve",
-    "prestart": "react-scripts build",
-    "start": "serve -s build",
+    "serve": "serve -s build",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

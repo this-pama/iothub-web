@@ -3,14 +3,14 @@ export default {
     self: {},
     items: [
       {
-        title: "Dashboards",
+        title: "Me",
         root: true,
         alignment: "left",
         page: "dashboard",
         translate: "MENU.DASHBOARD"
       },
       {
-        title: "Material UI",
+        title: "Auction",
         root: true,
         alignment: "left",
         toggle: "click",
@@ -286,7 +286,7 @@ export default {
         ]
       },
       {
-        title: "Bootstrap",
+        title: "Exhibition",
         root: true,
         alignment: "left",
         toggle: "click",
@@ -454,7 +454,7 @@ export default {
       //   ]
       // },
       {
-        title: "Custom",
+        title: "Referral",
         root: true,
         alignment: "left",
         toggle: "click",
@@ -503,22 +503,21 @@ export default {
     self: {},
     items: [
       {
-        title: "Dashboard",
+        title: "Me",
         root: true,
-        icon: "flaticon2-architecture-and-city",
+        icon: "flaticon2-menu",
         page: "dashboard",
-        translate: "MENU.DASHBOARD",
         bullet: "dot"
       },
+      // {
+      //   title: "Layout Builder",
+      //   root: true,
+      //   icon: "flaticon2-expand",
+      //   page: "builder"
+      // },
+      // { section: "Components" },
       {
-        title: "Layout Builder",
-        root: true,
-        icon: "flaticon2-expand",
-        page: "builder"
-      },
-      { section: "Components" },
-      {
-        title: "Material UI",
+        title: "Activities",
         root: true,
         bullet: "dot",
         icon: "flaticon2-browser-2",
@@ -749,7 +748,7 @@ export default {
         ]
       },
       {
-        title: "Bootstrap",
+        title: "Auction",
         root: true,
         bullet: "dot",
         icon: "flaticon2-digital-marketing",
@@ -864,26 +863,12 @@ export default {
           }
         ]
       },
-      { section: "Custom" },
-      // {
-      //   root: true,
-      //   title: "Documentation",
-      //   bullet: "dot",
-      //   icon: "flaticon2-file-1",
-      //   submenu: [
-      //     { title: "Quick Start", page: "docs/quick-start" },
-      //     { title: "Overview", page: "docs/overview" },
-      //     { title: "Deployment", page: "docs/deployment" },
-      //     { title: "Internationalization", page: "docs/i18n" },
-      //     { title: "Mock Backend", page: "docs/mock-backend" },
-      //     { title: "Create a Page", page: "docs/create-a-page" }
-      //   ]
-      // },
+    
       {
-        title: "Error Pages",
+        title: "Exhibition",
         root: true,
         bullet: "dot",
-        icon: "flaticon-danger",
+        icon: "flaticon2-calendar-9",
         submenu: [
           {
             title: "Error Page - 1",
