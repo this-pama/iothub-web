@@ -5,7 +5,7 @@
   "homepage": "https://arte-red-web.herokuapp.com/",
   "scripts": {
     "serve": "serve -s build",
-    "start": "react-scripts start",
+    "start": "serve -s build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
