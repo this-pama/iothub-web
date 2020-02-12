@@ -39,7 +39,7 @@ export default class RenderAllArtwork extends React.Component {
         else{
           var res = await response.json();
           if (res[0]._id) {
-            // console.warn("res", res)
+            console.warn( res)
             let reverseResp = await res.reverse()
             // console.warn("reverseResp", reverseResp)
             this.setState({

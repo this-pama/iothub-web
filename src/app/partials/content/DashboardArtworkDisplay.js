@@ -33,24 +33,25 @@ export default class DashboardArtworkDisplay extends React.Component {
     <div className="kt-portlet__body kt-portlet__body--fit kt-portlet__body--unfill">
         <div className="kt-widget19__pic kt-portlet-fit--top kt-portlet-fit--sides" style={{
             minHeight : 300,
-            backgroundImage:  typeof(this.props.artwork.imageURL) == 'object' ? `url(${this.props.artwork.imageURL[0]}` : `url(${this.props.artwork.imageURL}` 
+            backgroundImage:  typeof(this.props.artwork.imageURL) == 'object' ?  "url("+ (this.props.artwork.imageURL[0].substring(0, this.props.artwork.imageURL[0].indexOf("/upload/"))).concat("/upload/h_300,c_scale/") + this.props.artwork.imageURL[0].slice((this.props.artwork.imageURL[0].indexOf("/upload/") + 8), this.props.artwork.imageURL[0].length ) + ")" : 
+            "url("+ (this.props.artwork.imageURL.substring(0, this.props.artwork.imageURL.indexOf("/upload/"))).concat("/upload/h_300,c_scale/") + this.props.artwork.imageURL.slice((this.props.artwork.imageURL.indexOf("/upload/") + 8), this.props.artwork.imageURL.length ) + ")"
             }}>
             <h3 className="kt-widget19__title kt-font-light">
                 {this.props.artwork.title}
             </h3>
             <div className="kt-widget19__shadow"></div>
-            <div className="kt-widget19__labels">
+            {/* <div className="kt-widget19__labels">
                 <Link to='' className="btn btn-label-light-o2 btn-bold ">
                    See Sponsor
                 </Link>
-            </div>
+            </div> */}
         </div>
     </div>
     <div className="kt-portlet__body">
         <div className="kt-widget19__wrapper">
             <div className="kt-widget19__content">
                 <div className="kt-widget19__userpic">
-                    <img src= {`url(${toAbsoluteUrl("/media/misc/bg-1.jpg")})` } alt="" />
+                    <i className="fa fa-user" title="See Sponsor" />
                 </div>
                 <div className="kt-widget19__info">
                     <a href="#" className="kt-widget19__username">
@@ -64,18 +65,26 @@ export default class DashboardArtworkDisplay extends React.Component {
                 <div className="kt-widget19__stats">
                     <a href="#" className="kt-widget19__comment" title="Unlike">
                     <span className="kt-widget19__number kt-font-brand">
-                        {this.props.artwork.comment ? this.props.artwork.comment.length : 0 }
+                        {this.props.artwork.unlike ? this.props.artwork.unlike.length : 0 }
                     </span>
-                    <i className="flaticon-circle"  />
+                    <i className="fa fa-thumbs-down" style={{ color : this.props.artwork.unlike ? (this.props.artwork.unlike.findIndex(id =>{
+                                         return id === this.props.userId
+                                    }) >= 0 ? "blue" : null )
+                                    : null 
+              }}   />
                     </a>
                 </div>
                 &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;
                 <div className="kt-widget19__stats">
                     <a href="#" className="kt-widget19__comment" title="Like">
                     <span className="kt-widget19__number kt-font-brand">
-                        {this.props.artwork.comment ? this.props.artwork.comment.length : 0 }
+                        {this.props.artwork.like ? this.props.artwork.like.length : 0 }
                     </span>
-                        <i className="flaticon-like" />
+                        <i className="fa fa-thumbs-up" style={{ color : this.props.artwork.like ? (this.props.artwork.like.findIndex(id =>{
+                                         return id === this.props.userId
+                                    }) >= 0 ? "blue" : null )
+                                    : null 
+              }} />
                     </a>
                 </div>
                 &nbsp; &nbsp;  &nbsp;&nbsp; &nbsp;
