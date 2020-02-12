@@ -33,7 +33,7 @@ export default class DashboardArtworkDisplay extends React.Component {
     <div className="kt-portlet__body kt-portlet__body--fit kt-portlet__body--unfill">
         <div className="kt-widget19__pic kt-portlet-fit--top kt-portlet-fit--sides" style={{
             minHeight : 300,
-            backgroundImage: this.props.artwork.imageURL
+            backgroundImage:  typeof(this.props.artwork.imageURL) == 'object' ? `url(${this.props.artwork.imageURL[0]}` : `url(${this.props.artwork.imageURL}` 
             }}>
             <h3 className="kt-widget19__title kt-font-light">
                 {this.props.artwork.title}
