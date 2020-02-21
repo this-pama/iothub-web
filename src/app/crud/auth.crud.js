@@ -6,6 +6,7 @@ export const REQUEST_PASSWORD_URL = "api/auth/forgot-password";
 
 export const ME_URL = "https://artered.herokuapp.com/v1/account/";
 export const USER_URL = "https://artered.herokuapp.com/v1/user/byAccountId/";
+export const apiUrl = "https://artered.herokuapp.com/v1/";
 
 export const ARTE_RED_LOGIN_URL = "https://artered.herokuapp.com/v1/account/login"
 

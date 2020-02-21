@@ -1,12 +1,9 @@
 /* eslint-disable no-script-url,jsx-a11y/anchor-is-valid */
 import React from "react";
-import { Link } from "react-router-dom";
-import Dropdown from "react-bootstrap/Dropdown";
 import { connect } from "react-redux";
-import { toAbsoluteUrl } from "../../../_metronic";
 import DisplayArtwork from "../../partials/content/DashboardArtworkDisplay"
 
-export default class RenderAllArtwork extends React.Component {
+class RenderAllArtwork extends React.Component {
     constructor(props){
         super(props);
         this.state={
@@ -17,6 +14,7 @@ export default class RenderAllArtwork extends React.Component {
       
       componentDidMount(){
         this.getFeed() 
+        console.log(this.props.user)
       }
 
       getFeed= async ()=>{
@@ -39,7 +37,7 @@ export default class RenderAllArtwork extends React.Component {
         else{
           var res = await response.json();
           if (res[0]._id) {
-            console.warn( res)
+            // console.warn( res)
             let reverseResp = await res.reverse()
             // console.warn("reverseResp", reverseResp)
             this.setState({
@@ -65,8 +63,8 @@ export default class RenderAllArtwork extends React.Component {
           key={artwork._id} 
           artwork= {artwork} 
         //   navigation = {this.props.navigation}
-        //   userId={ this.props.userId}
-        //   jwt = {this.props.jwt}
+          user={ this.props.user}
+          authToken = {this.props.authToken.authToken}
         //   profile= {this.props.profile}
         //   moreArtworkDetailsAction = { this.props.moreArtworkDetailsAction}
         //   buyArtworkAction= {this.props.buyArtworkAction}
@@ -86,3 +84,9 @@ export default class RenderAllArtwork extends React.Component {
   }
 }
 
+
+const mapStateToProps = ({ auth: { user, authToken } }) => ({
+  user, authToken
+});
+
+export default connect(mapStateToProps)(RenderAllArtwork)
