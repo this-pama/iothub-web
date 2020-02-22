@@ -28,7 +28,6 @@ function Registration(props) {
             email: "",
             firstName: "",
             lastName: "",
-            telephone: '',
             password: "",
             acceptTerms: true,
             confirmPassword: ""
@@ -60,11 +59,11 @@ function Registration(props) {
               });
             }
 
-            if (!values.telephone) {
-              errors.telephone = intl.formatMessage({
-                id: "AUTH.VALIDATION.REQUIRED_FIELD"
-              });
-            }
+            // if (!values.telephone) {
+            //   errors.telephone = intl.formatMessage({
+            //     id: "AUTH.VALIDATION.REQUIRED_FIELD"
+            //   });
+            // }
 
             if (!values.password) {
               errors.password = intl.formatMessage({
@@ -92,15 +91,14 @@ function Registration(props) {
               values.email,
               values.firstName,
               values.lastName,
-              values.password,
-              values.telephone
+              values.password
             )
               .then((data) => {
                 console.log(data)
-                if(data.success){
+                if(data.data.success){
                   // setSuccess(true)
                   // setMessage("Registration successful")
-                  Swal.fire("Registration successful")
+                  Swal.fire("Awesome!", "Registration successful. Check your email for further instructions", "success")
                 }
                 else{
                   // setSuccess(true)
@@ -108,13 +106,14 @@ function Registration(props) {
                   Swal.fire('Oops...', 'Something went wrong!', 'error')
                 }
               })
-              .catch(() => {
+              .catch((err, data) => {
                 setSubmitting(false);
-                setStatus(
-                  intl.formatMessage({
-                    id: "AUTH.VALIDATION.INVALID_LOGIN"
-                  })
-                );
+                // setStatus(
+                //   intl.formatMessage({
+                //     id: "AUTH.VALIDATION.INVALID_LOGIN"
+                //   })
+                // );
+                Swal.fire('Oops...', 'Something went wrong!', 'error')
               });
           }}
         >
@@ -177,20 +176,7 @@ function Registration(props) {
                 />
               </div>
 
-              <div className="form-group mb-0">
-                <TextField
-                  type="number"
-                  label="Telephone"
-                  margin="normal"
-                  className="kt-width-full"
-                  name="telephone"
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  value={values.telephone}
-                  helperText={touched.telephone && errors.telephone}
-                  error={Boolean(touched.telephone && errors.telephone)}
-                />
-              </div>
+              
 
 
               <div className="form-group mb-0">
@@ -224,6 +210,21 @@ function Registration(props) {
                   )}
                 />
               </div>
+
+              {/* <div className="form-group mb-0">
+                <TextField
+                  type="number"
+                  label="Telephone"
+                  margin="normal"
+                  className="kt-width-full"
+                  name="telephone"
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  value={values.telephone}
+                  helperText={touched.telephone && errors.telephone}
+                  error={Boolean(touched.telephone && errors.telephone)}
+                />
+              </div> */}
 
               <div className="form-group mb-0">
                 <FormControlLabel
