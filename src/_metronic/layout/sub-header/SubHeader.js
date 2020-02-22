@@ -70,88 +70,11 @@ class SubHeader extends React.Component {
               href="#"
               className="btn btn-label-warning btn-bold btn-sm btn-icon-h kt-margin-l-10"
             >
-              <i className="kt-nav__link-icon flaticon2-photo-camera" />
-              Add New Post
+              <i className="kt-nav__link-icon flaticon-add" />
+              Add New Device
             </a>
           </div>
 
-          <div className="kt-subheader__toolbar">
-            <div className="kt-subheader__wrapper">
-              <button type="button" className="btn kt-subheader__btn-primary">
-              <Dropdown className="dropdown-inline" drop="down" alignRight>
-                <Dropdown.Toggle
-                  as={QuickActionsDropdownToggle}
-                  id="dropdown-toggle-quick-actions-subheader"
-                />
-                Sort By &nbsp;
-                <Dropdown.Menu className="dropdown-menu-fit dropdown-menu-md dropdown-menu-right">
-              <ul className="kt-nav">
-                <li className="kt-nav__head">
-                  Sort By:
-                </li>
-                <li className="kt-nav__separator" />
-                <li className="kt-nav__item">
-                  <a href="#" className="kt-nav__link">
-                    <i className="kt-nav__link-icon flaticon2-photograph" />
-                    <span className="kt-nav__link-text">Painting</span>
-                  </a>
-                </li>
-                <li className="kt-nav__item">
-                  <a href="#" className="kt-nav__link">
-                    <i className="kt-nav__link-icon flaticon2-photograph" />
-                    <span className="kt-nav__link-text">Sculpture</span>
-                  </a>
-                </li>
-                <li className="kt-nav__item">
-                  <a href="#" className="kt-nav__link">
-                    <i className="kt-nav__link-icon flaticon2-photograph" />
-                    <span className="kt-nav__link-text">Drawing</span>
-                  </a>
-                </li>
-                <li className="kt-nav__item">
-                  <a href="#" className="kt-nav__link">
-                    <i className="kt-nav__link-icon flaticon2-photograph" />
-                    <span className="kt-nav__link-text">Textile</span>
-                  </a>
-                </li>
-                <li className="kt-nav__item">
-                  <a href="#" className="kt-nav__link">
-                    <i className="kt-nav__link-icon flaticon2-photograph" />
-                    <span className="kt-nav__link-text">Collage</span>
-                  </a>
-                </li>
-                <li className="kt-nav__item">
-                  <a href="#" className="kt-nav__link">
-                    <i className="kt-nav__link-icon flaticon2-photograph" />
-                    <span className="kt-nav__link-text">Prints</span>
-                  </a>
-                </li>
-                <li className="kt-nav__item">
-                  <a href="#" className="kt-nav__link">
-                    <i className="kt-nav__link-icon flaticon2-photograph" />
-                    <span className="kt-nav__link-text">Photography</span>
-                  </a>
-                </li>
-                <li className="kt-nav__item">
-                  <a href="#" className="kt-nav__link">
-                    <i className="kt-nav__link-icon flaticon2-photograph" />
-                    <span className="kt-nav__link-text">Art Installation</span>
-                  </a>
-                </li>
-                <li className="kt-nav__item">
-                  <a href="#" className="kt-nav__link">
-                    <i className="kt-nav__link-icon flaticon2-photograph" />
-                    <span className="kt-nav__link-text">Others</span>
-                  </a>
-                </li>
-                <li className="kt-nav__separator" />
-              </ul>
-            </Dropdown.Menu>
-          </Dropdown>
-              </button>
-              <QuickActions />
-            </div>
-          </div>
         </div>
       </div>
     );

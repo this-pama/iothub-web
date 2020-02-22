@@ -1,21 +1,20 @@
 import axios from "axios";
 
-export const LOGIN_URL = "api/auth/login";
-export const REGISTER_URL = "api/auth/register";
+// export const LOGIN_URL = "api/auth/login";
 export const REQUEST_PASSWORD_URL = "api/auth/forgot-password";
 
 export const ME_URL = "https://artered.herokuapp.com/v1/account/";
-export const USER_URL = "https://artered.herokuapp.com/v1/user/byAccountId/";
-export const apiUrl = "https://artered.herokuapp.com/v1/";
-
-export const ARTE_RED_LOGIN_URL = "https://artered.herokuapp.com/v1/account/login"
+export const USER_URL = "https://iot-hub-lora.herokuapp.com/v1/user/byAccountId/";
+export const apiUrl = "https://iot-hub-lora.herokuapp.com/v1/";
+export const REGISTER_URL = apiUrl + "account/register";
+export const LOGIN_URL = "https://iot-hub-lora.herokuapp.com/v1/account/login"
 
 export function login(email, password) {
-  return axios.post(ARTE_RED_LOGIN_URL, { email, password });
+  return axios.post(LOGIN_URL, { email, password });
 }
 
-export function register(email, fullname, username, password) {
-  return axios.post(REGISTER_URL, { email, fullname, username, password });
+export function register(email, firstName, lastName, telephone, password) {
+  return axios.post(REGISTER_URL, { email, firstName, lastName, telephone, password });
 }
 
 export function requestPassword(email) {

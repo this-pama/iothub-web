@@ -20,7 +20,7 @@ let userId = '';
 let jwt = '';
 
 export const reducer = persistReducer(
-    { storage, key: "artered-auth", whitelist: ["user", "authToken"] },
+    { storage, key: "iot-hub", whitelist: ["user", "authToken"] },
     (state = initialAuthState, action) => {
       switch (action.type) {
         case actionTypes.Login: {

@@ -25,7 +25,7 @@ class Brand extends React.Component {
       >
         <div className="kt-aside__brand-logo">
           <Link to="">
-            <img alt="logo" src={this.props.headerLogo} />
+            <h4 style={{ color: "#fff"}}>IoT Hub</h4>
           </Link>
         </div>
 

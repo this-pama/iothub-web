@@ -19,29 +19,26 @@ export default function AuthPage() {
             <div
               className="kt-grid__item kt-grid__item--order-tablet-and-mobile-2 kt-grid kt-grid--hor kt-login__aside"
               style={{
-                backgroundImage: `url(${toAbsoluteUrl("/media/bg/bg-4.jpg")})`
+                backgroundImage: `url(${toAbsoluteUrl("/media/bg/bg-1.jpg")})`
               }}
             >
               <div className="kt-grid__item">
                 <Link to="/" className="kt-login__logo">
-                  <img
-                    alt="Logo"
-                    src={toAbsoluteUrl("/media/logos/logo-4.png")}
-                  />
+                  <h4 style={{ color: '#fff'}}>IoT Hub</h4>
                 </Link>
               </div>
               <div className="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver">
                 <div className="kt-grid__item kt-grid__item--middle">
-                  <h3 className="kt-login__title">Welcome to Arte Red!</h3>
+                  <h3 className="kt-login__title">Welcome to IoT Hub!</h3>
                   <h4 className="kt-login__subtitle">
-                    The ultimate platform for art stakeholders.
+                    Internet of Things IoT Hub for all IoT devices and gateway.
                   </h4>
                 </div>
               </div>
               <div className="kt-grid__item">
                 <div className="kt-login__info">
                   <div className="kt-login__copyright">
-                    &copy; {new Date().getFullYear() } Arte Red
+                    &copy; {new Date().getFullYear() } IoT Hub
                   </div>
                   <div className="kt-login__menu">
                     <Link to="/terms" className="kt-link">

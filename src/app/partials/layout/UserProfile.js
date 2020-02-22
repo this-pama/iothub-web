@@ -25,7 +25,7 @@ class UserProfile extends React.Component {
 
             {showHi && (
               <span className="kt-header__topbar-username kt-hidden-mobile">
-                {`${user.firstName.charAt(0).toUpperCase() + user.firstName.slice(1)}`}
+                {user.firstName ? `${user.firstName.charAt(0).toUpperCase() + user.firstName.slice(1)}` : null }
               </span>
             )}
 
@@ -34,7 +34,7 @@ class UserProfile extends React.Component {
             {showBadge && (
               <span className="kt-badge kt-badge--username kt-badge--unified-success kt-badge--lg kt-badge--rounded kt-badge--bold">
                 {/* TODO: Should get from currentUser */}
-                {`${user.firstName.charAt(0).toUpperCase() + user.firstName.slice(1)} ${user.lastName.charAt(0).toUpperCase() + user.lastName.slice(1)}`}
+                {user.firstName ? `${user.firstName.charAt(0).toUpperCase() + user.firstName.slice(1)} ${user.lastName.charAt(0).toUpperCase() + user.lastName.slice(1)}` : null }
               </span>
             )}
           </div>
@@ -50,10 +50,10 @@ class UserProfile extends React.Component {
             <div className="kt-user-card__avatar">
               <img alt="Pic" className="kt-hidden" src={user.imageUrl} />
               <span className="kt-badge kt-badge--lg kt-badge--rounded kt-badge--bold kt-font-success">
-                { user.firstName.charAt(0).toUpperCase() }
+                { user.firstName ? user.firstName.charAt(0).toUpperCase() : "I"}
               </span>
             </div>
-            <div className="kt-user-card__name">{`${user.firstName.charAt(0).toUpperCase() + user.firstName.slice(1)} ${user.lastName.charAt(0).toUpperCase() + user.lastName.slice(1)}`}</div>
+            <div className="kt-user-card__name">{ user.firstName ? `${user.firstName.charAt(0).toUpperCase() + user.firstName.slice(1)} ${user.lastName.charAt(0).toUpperCase() + user.lastName.slice(1)}` : null }</div>
             <div className="kt-user-card__badge">
               <span className="btn btn-success btn-sm btn-bold btn-font-md">
                 23 messages
@@ -74,45 +74,7 @@ class UserProfile extends React.Component {
                 </div>
               </div>
             </a>
-            <a className="kt-notification__item">
-              <div className="kt-notification__item-icon">
-                <i className="flaticon-suitcase kt-font-warning" />
-              </div>
-              <div className="kt-notification__item-details">
-                <div className="kt-notification__item-title kt-font-bold">
-                  My Wallet
-                </div>
-                <div className="kt-notification__item-time">
-                  Fund wallet, change currency and cash out
-                </div>
-              </div>
-            </a>
-            <a className="kt-notification__item">
-              <div className="kt-notification__item-icon">
-                <i className="flaticon2-rocket-1 kt-font-danger" />
-              </div>
-              <div className="kt-notification__item-details">
-                <div className="kt-notification__item-title kt-font-bold">
-                  My Activities
-                </div>
-                <div className="kt-notification__item-time">
-                  Negotiation, Exhibition ...
-                </div>
-              </div>
-            </a>
-            <a className="kt-notification__item">
-              <div className="kt-notification__item-icon">
-                <i className="flaticon2-avatar kt-font-brand" />
-              </div>
-              <div className="kt-notification__item-details">
-                <div className="kt-notification__item-title kt-font-bold">
-                  My Network
-                </div>
-                <div className="kt-notification__item-time">
-                  post, followers ...
-                </div>
-              </div>
-            </a>
+            
             <div className="kt-notification__custom">
               <Link
                 to="/logout"

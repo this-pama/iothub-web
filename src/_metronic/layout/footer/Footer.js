@@ -20,7 +20,7 @@ class Footer extends React.Component {
               rel="noopener noreferrer"
               className="kt-link"
             >
-              Arte Red
+              IoT Hub
             </a>
           </div>
           <div className="kt-footer__menu">

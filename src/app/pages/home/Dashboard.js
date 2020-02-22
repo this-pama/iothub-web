@@ -66,7 +66,7 @@ export default function Dashboard() {
       <div className="row">
         <div className="col-xl-6">
           <div className="row row-full-height">
-            <AllArtwork />
+            {/* <AllArtwork /> */}
           </div>
         </div>
 

@@ -6,9 +6,13 @@ import { FormattedMessage, injectIntl } from "react-intl";
 import { Checkbox, FormControlLabel, TextField } from "@material-ui/core";
 import * as auth from "../../store/ducks/auth.duck";
 import { register } from "../../crud/auth.crud";
+import { useState } from 'react';
+import Swal from 'sweetalert2'
 
 function Registration(props) {
   const { intl } = props;
+  const [success, setSuccess] = useState(false);
+  const [message, setMessage] = useState('');
 
   return (
     <div className="kt-login__body">
@@ -22,8 +26,9 @@ function Registration(props) {
         <Formik
           initialValues={{
             email: "",
-            fullname: "",
-            username: "",
+            firstName: "",
+            lastName: "",
+            telephone: '',
             password: "",
             acceptTerms: true,
             confirmPassword: ""
@@ -43,14 +48,20 @@ function Registration(props) {
               });
             }
 
-            if (!values.fullname) {
-              errors.fullname = intl.formatMessage({
+            if (!values.firstName) {
+              errors.firstName = intl.formatMessage({
                 id: "AUTH.VALIDATION.REQUIRED_FIELD"
               });
             }
 
-            if (!values.username) {
-              errors.username = intl.formatMessage({
+            if (!values.lastName) {
+              errors.lastName = intl.formatMessage({
+                id: "AUTH.VALIDATION.REQUIRED_FIELD"
+              });
+            }
+
+            if (!values.telephone) {
+              errors.telephone = intl.formatMessage({
                 id: "AUTH.VALIDATION.REQUIRED_FIELD"
               });
             }
@@ -79,12 +90,23 @@ function Registration(props) {
           onSubmit={(values, { setStatus, setSubmitting }) => {
             register(
               values.email,
-              values.fullname,
-              values.username,
-              values.password
+              values.firstName,
+              values.lastName,
+              values.password,
+              values.telephone
             )
-              .then(({ data: { accessToken } }) => {
-                props.register(accessToken);
+              .then((data) => {
+                console.log(data)
+                if(data.success){
+                  // setSuccess(true)
+                  // setMessage("Registration successful")
+                  Swal.fire("Registration successful")
+                }
+                else{
+                  // setSuccess(true)
+                  // setMessage(data.message)
+                  Swal.fire('Oops...', 'Something went wrong!', 'error')
+                }
               })
               .catch(() => {
                 setSubmitting(false);
@@ -116,14 +138,28 @@ function Registration(props) {
               <div className="form-group mb-0">
                 <TextField
                   margin="normal"
-                  label="Fullname"
+                  label="First Name"
                   className="kt-width-full"
-                  name="fullname"
+                  name="firstName"
                   onBlur={handleBlur}
                   onChange={handleChange}
-                  value={values.fullname}
-                  helperText={touched.fullname && errors.fullname}
-                  error={Boolean(touched.fullname && errors.fullname)}
+                  value={values.firstName}
+                  helperText={touched.firstName && errors.firstName}
+                  error={Boolean(touched.firstName && errors.firstName)}
+                />
+              </div>
+
+              <div className="form-group mb-0">
+                <TextField
+                  margin="normal"
+                  label="Last Name"
+                  className="kt-width-full"
+                  name="lastName"
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  value={values.lastName}
+                  helperText={touched.lastName && errors.lastName}
+                  error={Boolean(touched.lastName && errors.lastName)}
                 />
               </div>
 
@@ -143,17 +179,19 @@ function Registration(props) {
 
               <div className="form-group mb-0">
                 <TextField
+                  type="number"
+                  label="Telephone"
                   margin="normal"
-                  label="Username"
                   className="kt-width-full"
-                  name="username"
+                  name="telephone"
                   onBlur={handleBlur}
                   onChange={handleChange}
-                  value={values.username}
-                  helperText={touched.username && errors.username}
-                  error={Boolean(touched.username && errors.username)}
+                  value={values.telephone}
+                  helperText={touched.telephone && errors.telephone}
+                  error={Boolean(touched.telephone && errors.telephone)}
                 />
               </div>
+
 
               <div className="form-group mb-0">
                 <TextField
